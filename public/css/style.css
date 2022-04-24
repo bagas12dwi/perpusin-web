@@ -1,0 +1,16 @@
+body{
+    background: #E5E5E5;
+}
+
+.icon-nav{
+    font-size: 1.3rem;
+}
+
+.btn-custom{
+    background: #996433;
+    color: #fff;
+}
+
+.navbar-custom{
+    background: #ACDBDF;
+}
