@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row align-items-center">
         <div class="col">
-          <h1 class="fw-bold">Buku Terpopuler</h1>
+          <h1 class="fw-bold text-truncate">Buku Terpopuler</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil assumenda corporis harum maiores nisi, commodi veniam nemo possimus ipsam eligendi sit nesciunt ipsum ut, obcaecati dignissimos quae recusandae. Molestias, alias.</p>
           <button type="button" class="btn btn-custom">Jelajahi Sekarang</button>
         </div>
@@ -15,40 +15,31 @@
       </div>
 </div>
 <div class="container"><hr></div>
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light shadow-5-strong">
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <h3 class="fw-bold">Buku Terbaru</h3>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Novel</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Artikel</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Jurnal</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Ensiklopedia</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Kamus</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Cergam</a>
-                  </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-</div>
 
+{{-- buku terbaru --}}
+@include('components.home-screen.buku-baru')
+
+<div class="container"><hr></div>
+
+{{-- sering dibaca --}}
+@include('components.home-screen.sering-dibaca')
+
+<div class="container"><hr></div>
+
+
+{{-- Kategori --}}
+@include('components.home-screen.kategori')
+
+<div class="container"><hr></div>
+
+{{-- Statistik --}}
+@include('components.home-screen.statistik')
+
+<div class="container"><hr></div>
+
+<div class="container py-2">
+  <h3 class="fw-bold text-center mb-2 text-uppercase">Perpusin</h3>
+  <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta possimus minima aliquam tempore vero fugiat suscipit nihil? Perferendis alias similique ipsum dolorem laborum ab qui dicta aliquid, fuga possimus veritatis!</p>
+</div>
 
 @endsection
