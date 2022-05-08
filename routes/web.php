@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Perpustakaan;
+use App\Http\Controllers\BukuController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/perpustakaan', [Perpustakaan::class, 'index']);
+Route::get('/buku', [BukuController::class, 'index']);

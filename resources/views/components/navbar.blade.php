@@ -12,10 +12,10 @@
           <a class="nav-link active" aria-current="page" href="#">Beranda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Perpustakaan</a>
+          <a class="nav-link" href="/perpustakaan">Perpustakaan</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Buku</a>
+          <a class="nav-link" href="/buku">Buku</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Kategori</a>
