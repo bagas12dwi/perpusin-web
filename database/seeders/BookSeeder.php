@@ -61,5 +61,16 @@ class BookSeeder extends Seeder
             'stock' => 3,
             'amercement_price' => 4000
         ]);
+        Books::create([
+            "library_id" => 1,
+            "title" => 'Orang Orang Proyek',
+            'description' => 'Eiusmod commodo duis id ea dolor elit. Laborum eiusmod aute quis amet fugiat fugiat magna officia elit cupidatat. Et cupidatat culpa est laborum amet aliquip sint cillum qui.',
+            'imgLocation' => 'book1.png',
+            'author' => 'Ahmad Tohari',
+            'publisher' => 'Gramedia',
+            'isOnline' => false,
+            'stock' => 3,
+            'amercement_price' => 4000
+        ]);
     }
 }

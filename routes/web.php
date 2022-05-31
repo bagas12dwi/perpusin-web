@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Perpustakaan;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OtentikasiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +17,15 @@ use App\Http\Controllers\BukuController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/perpustakaan', [Perpustakaan::class, 'index']);
 Route::get('/buku', [BukuController::class, 'index']);
+
+
+//auth
+Route::get('/login', [OtentikasiController::class, 'loginIndex']);
+Route::get('/register', [OtentikasiController::class, 'registerIndex']);
+Route::post('/register', [OtentikasiController::class, 'register']);
+Route::post('/logout', [OtentikasiController::class, 'logout']);
+Route::post('/login', [OtentikasiController::class, 'login']);
