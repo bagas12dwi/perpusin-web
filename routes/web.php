@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Perpustakaan;
 use App\Http\Controllers\BukuController;
@@ -25,6 +26,9 @@ Route::get('/buku', [BukuController::class, 'index']);
 Route::post('/addToCart', [CartsController::class, 'addToCart']);
 Route::get('/keranjang/sukses', [CartsController::class, 'success']);
 Route::get('/keranjang', [CartsController::class, 'index']);
+Route::get('/peminjaman/sukses', [BookingController::class, 'success']);
+Route::post('/addToBooking', [BookingController::class, 'addToBooking']);
+
 
 
 //auth
