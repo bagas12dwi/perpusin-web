@@ -14,10 +14,10 @@
                 <div class="row">
                     @auth
                         @if ($item->isOnline == true)
-                            <div class="col">
+                            <div class="col d-flex align-items-center">
                                 <a href="#" class="btn btn-custom">Baca</a>
                             </div>
-                            <div class="col">
+                            <div class="col d-flex align-items-center">
                                 <form method="POST" action="/addToCart" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">

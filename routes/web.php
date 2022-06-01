@@ -24,6 +24,7 @@ Route::get('/perpustakaan', [Perpustakaan::class, 'index']);
 Route::get('/buku', [BukuController::class, 'index']);
 Route::post('/addToCart', [CartsController::class, 'addToCart']);
 Route::get('/keranjang/sukses', [CartsController::class, 'success']);
+Route::get('/keranjang', [CartsController::class, 'index']);
 
 
 //auth

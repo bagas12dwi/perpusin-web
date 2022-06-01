@@ -10,25 +10,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Beranda</a>
+                    <a class="nav-link {{ $title === 'Home' ? 'active fw-bold' : '' }} " aria-current="page"
+                        href="/">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/perpustakaan">Perpustakaan</a>
+                    <a class="nav-link {{ $title === 'Perpustakaan' ? 'active fw-bold' : '' }}"
+                        href="/perpustakaan">Perpustakaan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/buku">Buku</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Kategori</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Lokasi</a>
+                    <a class="nav-link {{ $title === 'Buku' ? 'active fw-bold' : '' }}" href="/buku">Buku</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-cart2 icon-nav"></i></a>
+                        <a class="nav-link" href="/keranjang"><i class="bi bi-cart2 icon-nav"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"><i class="bi bi-coin icon-nav"></i>

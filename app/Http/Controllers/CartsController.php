@@ -11,7 +11,9 @@ class CartsController extends Controller
 
     public function index()
     {
-        # code...
+        return view('cart', [
+            'title' => 'Keranjang'
+        ]);
     }
 
     public function addToCart(Request $request)
