@@ -11,19 +11,39 @@
                 <p class="card-text"
                     style="text-overflow: ellipsis; width:150px; overflow: hidden; white-space: nowrap;">
                     {{ $item->description }}</p>
-                <div class="row justify-content-between">
-                    @if ($item->isOnline == true)
-                        <div class="col">
-                            <a href="#" class="btn btn-custom">Baca</a>
-                        </div>
-                        <div class="col">
-                            <a href="#" class="nav-link"><i class="bi bi-cart2 icon-nav"></i></a>
-                        </div>
+                <div class="row">
+                    @auth
+                        @if ($item->isOnline == true)
+                            <div class="col">
+                                <a href="#" class="btn btn-custom">Baca</a>
+                            </div>
+                            <div class="col">
+                                <form method="POST" action="/addToCart" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
+                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                    <button type="submit" class="btn nav-link" name="upload"><i
+                                            class="bi bi-cart2 icon-nav"></i></button>
+                                </form>
+                            </div>
+                        @else
+                            <form method="POST" action="/addToCart" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
+                                <input type="hidden" name="id" value="{{ $item->id }}">
+                                <button type="submit" class="btn nav-link" name="upload"><i
+                                        class="bi bi-cart2 icon-nav"></i></button>
+                            </form>
+                            {{-- @else
+                            <div class="col">
+                                <a href="/login" class="nav-link"><i class="bi bi-cart2 icon-nav"></i></a>
+                            </div> --}}
+                        @endif
                     @else
                         <div class="col">
-                            <a href="#" class="nav-link"><i class="bi bi-cart2 icon-nav"></i></a>
+                            <a href="/login" class="nav-link"><i class="bi bi-cart2 icon-nav"></i></a>
                         </div>
-                    @endif
+                    @endauth
                 </div>
             </div>
         </div>

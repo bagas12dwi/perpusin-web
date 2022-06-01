@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Perpustakaan;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\CartsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OtentikasiController;
 
@@ -21,6 +22,8 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/perpustakaan', [Perpustakaan::class, 'index']);
 Route::get('/buku', [BukuController::class, 'index']);
+Route::post('/addToCart', [CartsController::class, 'addToCart']);
+Route::get('/keranjang/sukses', [CartsController::class, 'success']);
 
 
 //auth
