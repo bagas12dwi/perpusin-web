@@ -20,7 +20,7 @@ return new class extends Migration
                 BEGIN
                     UPDATE books
                     SET stock = stock - 1
-                    WHERE bookings.book_id = books.id;
+                    WHERE id = NEW.book_id ;
                 END
         ');
     }
