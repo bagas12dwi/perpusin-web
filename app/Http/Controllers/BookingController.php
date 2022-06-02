@@ -37,9 +37,12 @@ class BookingController extends Controller
         $booking->book_id = $idBuku;
         $booking->save();
 
-        DB::table('carts')
-            ->where('id', '=', $cartId)
-            ->delete();
+        if ($cartId != '') {
+            DB::table('carts')
+                ->where('id', '=', $cartId)
+                ->delete();
+        }
+
 
         return redirect()->intended('/peminjaman/sukses');
     }
