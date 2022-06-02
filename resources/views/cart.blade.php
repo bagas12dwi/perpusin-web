@@ -5,9 +5,7 @@
         <h4 class="my-3 fw-bold">Keranjang</h4>
         <hr class="mb-3">
         @if ($cartId == '')
-            <div class="container my-4 text-center">
-                <h3>Tidak Ada Data</h3>
-            </div>
+            @include('components.widget.empty')
         @else
             <table class="table table-striped table-light">
                 <thead>
@@ -45,7 +43,8 @@
                                 <form method="POST" action="/addToBooking" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
-                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                    <input type="hidden" name="id" value="{{ $item->bookId }}">
+                                    <input type="hidden" name="cartId" value="{{ $item->cartId }}">
                                     <button type="submit" class="btn btn-custom " name="upload">Pinjam</button>
                                 </form>
                             </td>

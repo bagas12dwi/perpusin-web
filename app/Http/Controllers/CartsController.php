@@ -17,7 +17,7 @@ class CartsController extends Controller
         $cart = DB::table('carts')
             ->join('books', 'carts.book_id', '=', 'books.id')
             ->join('libraries', 'libraries.id', '=', 'books.library_id')
-            ->select('carts.id', 'books.id', 'books.imgLocation', 'books.title', 'books.author', 'books.publisher', 'libraries.id', 'libraries.library_name', 'libraries.location')
+            ->select('carts.id AS cartId', 'books.id AS bookId', 'books.imgLocation', 'books.title', 'books.author', 'books.publisher', 'libraries.id AS libraryId', 'libraries.library_name', 'libraries.location')
             ->where('carts.user_id', $id_user)
             ->get();
 

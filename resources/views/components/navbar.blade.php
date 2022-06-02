@@ -37,30 +37,30 @@
                             <span>{{ auth()->user()->username }}</span>
                         </a>
                         <ul class="dropdown-menu ms-auto mb-2 mb-lg-0" aria-labelledby="navbarDropdown">
-                            {{-- <li><a class="dropdown-item" href="/daftar-transaksi"><i
-                                        class="fas fa-tasks fa-sm me-2"></i></i>Daftar Transaksi</a></li>
-                            <li> --}}
-                            {{-- <hr class="dropdown-divider"> --}}
+                            <li><a class="dropdown-item" href="/peminjaman"><i
+                                        class="bi bi-bookmark-fill icon-nav me-2"></i>Peminjaman</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-box-arrow-right icon-nav me-2"></i>Logout
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
                     </li>
-                    <li>
-                        <form action="/logout" method="POST">
-                            @csrf
-                            <button type="submit" class="dropdown-item">
-                                <i class="bi bi-box-arrow-right icon-nav me-2"></i>Logout
-                            </button>
-                        </form>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link ms-3 me-2 d-flex justify-content-center fw-bold text-uppercase" href="/login">
+                            <div class="icon-navbar nav-item" style="cursor: pointer">
+                                <i class="bi bi-person-circle icon-nav me-2"></i>Login
+                            </div>
+                        </a>
                     </li>
-                </ul>
-                </li>
-            @else
-                <li class="nav-item">
-                    <a class="nav-link ms-3 me-2 d-flex justify-content-center fw-bold text-uppercase" href="/login">
-                        <div class="icon-navbar nav-item" style="cursor: pointer">
-                            <i class="bi bi-person-circle icon-nav me-2"></i>Login
-                        </div>
-                    </a>
-                </li>
-            @endauth
+                @endauth
             </ul>
         </div>
     </div>

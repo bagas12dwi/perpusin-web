@@ -26,6 +26,7 @@ Route::get('/buku', [BukuController::class, 'index']);
 Route::post('/addToCart', [CartsController::class, 'addToCart']);
 Route::get('/keranjang/sukses', [CartsController::class, 'success']);
 Route::get('/keranjang', [CartsController::class, 'index']);
+Route::get('/peminjaman', [BookingController::class, 'index']);
 Route::get('/peminjaman/sukses', [BookingController::class, 'success']);
 Route::post('/addToBooking', [BookingController::class, 'addToBooking']);
 

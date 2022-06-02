@@ -1,7 +1,7 @@
 @extends('layout.main-layout')
 
 @section('konten')
-    <div class="container" style="margin-top: 3%">
+    <div class="container" style="margin-top: 3%; min-height: 427px">
         <div class="row justify-content-center">
             <div class="col-lg-4">
 
@@ -52,8 +52,6 @@
                         <button class="w-100 btn btn-custom my-3" type="submit">Login</button>
                     </form>
                     {{-- {{ route('google.login') }} --}}
-                    <a href="#" class="w-100 btn btn-lg mb-3 btn-outline-danger"><span class="bi bi-google"> Masuk dengan
-                            akun Google</span></a>
                     <small class="d-block text-center">Belum Punya Akun? <a href="/register">Daftar Sekarang</a> </small>
                 </main>
             </div>
