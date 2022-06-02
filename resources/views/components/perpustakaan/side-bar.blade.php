@@ -30,17 +30,17 @@
             </div>
 
             <li class="nav-item {{ $title == 'Buku' ? 'active' : '' }}">
-                <a class="nav-link" href="/product-admin">
+                <a class="nav-link" href="/manage-buku">
                     <i class="bi bi-book-fill icon-nav"></i>
                     <span>Buku</span></a>
             </li>
             <li class="nav-item {{ $title == 'Pengembalian' ? 'active' : '' }}">
-                <a class="nav-link" href="/user">
+                <a class="nav-link" href="/pengembalian">
                     <i class="bi bi-arrow-return-right"></i>
                     <span>Pengembalian</span></a>
             </li>
             <li class="nav-item {{ $title == 'Rekap Transaksi' ? 'active' : '' }}">
-                <a class="nav-link" href="/transaksi">
+                <a class="nav-link" href="/riwayat-pinjam">
                     <i class="fas fa-clipboard-list"></i>
                     <span>Riwayat Peminjaman</span></a>
             </li>

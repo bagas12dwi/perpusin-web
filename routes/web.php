@@ -34,6 +34,8 @@ Route::post('/addToBooking', [BookingController::class, 'addToBooking']);
 
 //adm-perpus route
 Route::get('/dashboard-perpustakaan', [Dashboard::class, 'indexAdminPerpus']);
+Route::get('/manage-buku', [BukuController::class, 'indexAdminPerpus']);
+Route::get('/tambah-buku', [BukuController::class, 'indexAddBook']);
 
 //auth
 Route::get('/login', [OtentikasiController::class, 'loginIndex']);
