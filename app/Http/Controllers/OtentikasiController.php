@@ -76,7 +76,7 @@ class OtentikasiController extends Controller
         } else if ($role == 2) {
             if (Auth::attempt($inputan)) {
                 $request->session()->regenerate();
-                return redirect()->intended('/admin');
+                return redirect()->intended('/dashboard-perpustakaan');
             }
 
             return back()->with('errorLogin', 'Login Gagal !');

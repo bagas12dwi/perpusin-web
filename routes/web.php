@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Perpustakaan;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\CartsController;
+use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OtentikasiController;
 
@@ -31,7 +32,8 @@ Route::get('/peminjaman', [BookingController::class, 'index']);
 Route::get('/peminjaman/sukses', [BookingController::class, 'success']);
 Route::post('/addToBooking', [BookingController::class, 'addToBooking']);
 
-
+//adm-perpus route
+Route::get('/dashboard-perpustakaan', [Dashboard::class, 'indexAdminPerpus']);
 
 //auth
 Route::get('/login', [OtentikasiController::class, 'loginIndex']);
