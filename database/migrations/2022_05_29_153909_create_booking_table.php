@@ -18,9 +18,16 @@ return new class extends Migration
             $table->id();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
-            $table->string('trx_number');
-            $table->integer('book_id');
             $table->integer('user_id');
+            $table->string('trx_number');
+            $table->date('return_date')->nullable();
+            $table->string('full_name')->nullable();
+            $table->text('address')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('guarantee')->nullable();
+            $table->integer('book_id');
+            $table->boolean('isBooked')->nullable();
+            $table->boolean('isBack')->nullable();
         });
     }
 
