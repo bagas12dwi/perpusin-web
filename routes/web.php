@@ -22,6 +22,7 @@ use App\Http\Controllers\OtentikasiController;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/perpustakaan', [Perpustakaan::class, 'index']);
+Route::get('/perpustakaan/{library:library_name}', [Perpustakaan::class, 'browseLibrary']);
 Route::get('/buku', [BukuController::class, 'index']);
 Route::post('/addToCart', [CartsController::class, 'addToCart']);
 Route::get('/keranjang/sukses', [CartsController::class, 'success']);
