@@ -36,6 +36,10 @@ Route::post('/addToBooking', [BookingController::class, 'addToBooking']);
 Route::get('/dashboard-perpustakaan', [Dashboard::class, 'indexAdminPerpus']);
 Route::get('/manage-buku', [BukuController::class, 'indexAdminPerpus']);
 Route::get('/tambah-buku', [BukuController::class, 'indexAddBook']);
+Route::get('/manage-buku/{book:title}/update', [BukuController::class, 'indexUpdateBook']);
+Route::post('/add-book', [BukuController::class, 'insertBook']);
+Route::post('/delete-book', [BukuController::class, 'deleteBook']);
+Route::post('/update-book', [BukuController::class, 'updateBook']);
 
 //auth
 Route::get('/login', [OtentikasiController::class, 'loginIndex']);

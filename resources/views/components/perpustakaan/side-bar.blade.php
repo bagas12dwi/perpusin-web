@@ -34,6 +34,11 @@
                     <i class="bi bi-book-fill icon-nav"></i>
                     <span>Buku</span></a>
             </li>
+            <li class="nav-item {{ $title == 'Konfirmasi Peminjaman' ? 'active' : '' }}">
+                <a class="nav-link" href="/konfirmasi-pinjam">
+                    <i class="bi bi-check-circle-fill icon-nav"></i>
+                    <span>Konfirmasi Peminjaman</span></a>
+            </li>
             <li class="nav-item {{ $title == 'Pengembalian' ? 'active' : '' }}">
                 <a class="nav-link" href="/pengembalian">
                     <i class="bi bi-arrow-return-right"></i>

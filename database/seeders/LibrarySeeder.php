@@ -20,13 +20,17 @@ class LibrarySeeder extends Seeder
         Library::create([
             'library_name' => 'Perpustakaan Kota',
             'library_desc' => 'Ut proident nostrud cupidatat nisi aliquip cupidatat labore consectetur incididunt minim.',
-            'location' =>  'Jl. Surabaya'
+            'location' =>  'Jl. Surabaya',
+            'user_id' => 1,
+            'is_active' => true
         ]);
 
         Library::create([
             'library_name' => 'Perpustakaan Unesa',
             'library_desc' => 'Ut proident nostrud cupidatat nisi aliquip cupidatat labore consectetur incididunt minim.',
-            'location' =>  'Jl. Lidah Wetan, Unesa Kampus Utama'
+            'location' =>  'Jl. Lidah Wetan, Unesa Kampus Utama',
+            'user_id' => 2,
+            'is_active' => true
         ]);
     }
 }

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('library_name');
             $table->text('library_desc');
             $table->text('location');
+            $table->integer('user_id');
+            $table->boolean('is_active');
         });
     }
 

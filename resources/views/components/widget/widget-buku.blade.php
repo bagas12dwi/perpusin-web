@@ -1,9 +1,11 @@
 @foreach ($books as $item)
     <div class="item col-md-3 mb-4">
-        <div class="card" style="width: 15rem; padding: 10px">
-            <img src="{{ URL::asset('assets/' . $item->imgLocation) }}" style="width: 8.389375rem"
-                class="card-img-top mx-auto d-block" alt="...">
-            <div class="card-body">
+        <div class="card" style="width: 15rem; padding: 10px; height: 24.625rem;">
+            <div class="container d-flex align-items-center" style="height: 11.89375rem">
+                <img src="{{ URL::asset('storage/buku/' . $item->imgLocation) }}" style="width: 8.389375rem"
+                    class="card-img-top mx-auto d-block" alt="...">
+            </div>
+            <div class="card-body ">
                 <h6 class="card-title">Stock : {{ $item->stock }}</h6>
                 <h5 class="card-title fw-bold"
                     style="text-overflow: ellipsis; width:150px; overflow: hidden; white-space:nowrap;">

@@ -22,15 +22,15 @@
                 @foreach ($books as $item)
                     <tr>
                         <th style="vertical-align: middle; width: 5%" scope="row">
-                            <form action="/" method="POST">
+                            <form action="/delete-book" method="POST">
                                 @csrf
-                                <input type="hidden" name="bookId" value="{{ $bookId }}">
+                                <input type="hidden" name="bookId" value="{{ $item->id }}">
                                 <button onclick="return confirm('Apakah anda yakin menghapus data ini?')"
                                     class="btn-close btn-danger" aria-label="Close"></button>
                             </form>
                         </th>
                         <td style="vertical-align: middle">
-                            <img src="{{ URL::asset('assets/' . $item->imgLocation) }}" width="100px" alt="" />
+                            <img src="{{ URL::asset('storage/buku/' . $item->imgLocation) }}" width="100px" alt="" />
                         </td>
                         <td class="fw-bold text-uppercase" style="vertical-align: middle">{{ $item->title }}</td>
                         <td style="vertical-align: middle">{{ $item->author }}</td>
@@ -38,13 +38,7 @@
                         <td style="vertical-align: middle">{{ $item->description }}</td>
                         <td style="vertical-align: middle">{{ $item->stock }}</td>
                         <td style="vertical-align: middle; width: 10%">
-                            <form method="POST" action="/" enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
-                                <input type="hidden" name="id" value="{{ $item->id }}">
-                                <input type="hidden" name="cartId" value="{{ $item->bookId }}">
-                                <button type="submit" class="btn btn-custom " name="upload">Update</button>
-                            </form>
+                            <a href="/manage-buku/{{ $item->title }}/update" class="btn btn-custom">Update</a>
                         </td>
                     </tr>
                 @endforeach
