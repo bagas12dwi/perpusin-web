@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
-use App\Models\Carts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,7 +11,6 @@ class BookingController extends Controller
     //
     public function index()
     {
-        # code...
         $id_user = auth()->user()->id;
         $booking = DB::table('bookings')
             ->join('books', 'bookings.book_id', '=', 'books.id')
@@ -52,5 +50,30 @@ class BookingController extends Controller
         return view('success-booking', [
             'title' => 'Berhasil'
         ]);
+    }
+
+    public function indexKonfirmasiPeminjaman()
+    {
+        $library_id = DB::table('libraries')
+            ->where('user_id', '=', auth()->user()->id)
+            ->value('id');
+
+        $booking = DB::table('bookings')
+            ->join('books', 'bookings.book_id', '=', 'books.id')
+            ->join('libraries', 'books.library_id', '=', 'libraries.id')
+            ->join('users', 'users.id', '=', 'bookings.user_id')
+            ->select('bookings.id AS idBooking', 'bookings.trx_number', 'users.username', 'books.id AS idBuku', 'books.title', 'books.author', 'books.publisher', 'books.imgLocation')
+            ->where('libraries.user_id', auth()->user()->id)
+            ->get();
+
+        $bookId = DB::table('bookings')
+            ->join('books', 'books.id', '=', 'bookings.book_id')
+            ->join('libraries', 'libraries.id', '=', 'books.library_id')
+            ->where('libraries.user_id', '=', auth()->user()->id)
+            ->value('bookings.id');
+
+        return view('adm-perpus.confirm-booking', [
+            'title' => 'Konfirmasi Peminjaman',
+        ], compact('booking'))->with('bookId', $bookId);
     }
 }

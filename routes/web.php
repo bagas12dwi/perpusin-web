@@ -40,6 +40,7 @@ Route::get('/manage-buku/{book:title}/update', [BukuController::class, 'indexUpd
 Route::post('/add-book', [BukuController::class, 'insertBook']);
 Route::post('/delete-book', [BukuController::class, 'deleteBook']);
 Route::post('/update-book', [BukuController::class, 'updateBook']);
+Route::get('/konfirmasi-pinjam', [BookingController::class, 'indexKonfirmasiPeminjaman']);
 
 //auth
 Route::get('/login', [OtentikasiController::class, 'loginIndex']);

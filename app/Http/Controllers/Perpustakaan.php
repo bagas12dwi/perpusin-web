@@ -21,7 +21,7 @@ class Perpustakaan extends Controller
         $name = $library->library_name;
         $idLibrary = $library->id;
         $book = DB::table('books')
-            ->select('books.id AS idBuku', 'books.title', 'books.imgLocation', 'books.description', 'books.stock')
+            ->select('books.id', 'books.title', 'books.imgLocation', 'books.description', 'books.stock', 'books.isOnline')
             ->where('books.library_id', $idLibrary)
             ->get();
         return view('library-book', [
