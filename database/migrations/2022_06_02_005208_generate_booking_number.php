@@ -19,7 +19,7 @@ return new class extends Migration
             CREATE TRIGGER generate_booking_number BEFORE INSERT ON bookings FOR EACH ROW 
                 BEGIN
                     INSERT INTO sequence_booking_number VALUES (NULL);
-                    SET NEW.trx_number = CONCAT("BOOK/",DATE_FORMAT(CURDATE(), "%Y%m%d"),"/",LPAD(LAST_INSERT_ID(), 5, "0")); 
+                    SET NEW.trx_number = CONCAT("BOOK-",DATE_FORMAT(CURDATE(), "%Y%m%d"),"",LPAD(LAST_INSERT_ID(), 5, "0")); 
                 END
         ');
     }

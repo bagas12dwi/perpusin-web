@@ -41,6 +41,8 @@ Route::post('/add-book', [BukuController::class, 'insertBook']);
 Route::post('/delete-book', [BukuController::class, 'deleteBook']);
 Route::post('/update-book', [BukuController::class, 'updateBook']);
 Route::get('/konfirmasi-pinjam', [BookingController::class, 'indexKonfirmasiPeminjaman']);
+Route::get('/konfirmasi-pinjam/{booking:trx_number}', [BookingController::class, 'konfirmasiPinjam']);
+Route::post('/confirm-booking', [BookingController::class, 'konfirmasi']);
 
 //auth
 Route::get('/login', [OtentikasiController::class, 'loginIndex']);

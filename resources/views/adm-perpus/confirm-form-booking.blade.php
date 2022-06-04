@@ -1,35 +1,37 @@
 @extends('layout.adm-perpus-layout')
 
 @section('konten')
-    <form method="POST" action="/add-book" enctype="multipart/form-data">
+    <form method="POST" action="/confirm-booking" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-            <label for="judulBuku" class="form-label">Judul Buku</label>
-            <input type="text" class="form-control" name="judulBuku" id="judulBuku">
+            <label for="noTransaksi" class="form-label">No. Transaksi</label>
+            <input type="text" class="form-control" value="{{ $booking->trx_number }}" id="noTransaksi"
+                name="noTransaksi" readonly>
         </div>
         <div class="mb-3">
-            <label for="penulis" class="form-label">Penulis</label>
-            <input type="text" class="form-control" id="penulis" name="penulis">
+            <label for="nama" class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-control" id="nama" name="nama">
         </div>
         <div class="mb-3">
-            <label for="penerbit" class="form-label">Penerbit</label>
-            <input type="text" class="form-control" id="penerbit" name="penerbit">
+            <label for="alamat" class="form-label">Alamat</label>
+            <textarea class="form-control" id="alamat" name="alamat"></textarea>
         </div>
         <div class="mb-3">
-            <label for="deskripsi" class="form-label">Deskripsi</label>
-            <textarea class="form-control" id="deskripsi" name="deskripsi" name="deskripsi"></textarea>
+            <label for="noTelp" class="form-label">No. Telepon</label>
+            <input type="text" class="form-control" id="noTelp" name="noTelp">
         </div>
         <div class="mb-3">
-            <label for="stock" class="form-label">Stock</label>
-            <input type="number" class="form-control" id="stock" name="stock">
+            <label for="inputTanggal" class="form-label">Tanggal Pengembalian</label>
+            <input type="text" class="form-control datepicker" id="inputTanggal" name="inputTanggal">
         </div>
         <div class="mb-3">
-            <label for="denda" class="form-label">Biaya Denda</label>
-            <input type="number" class="form-control" id="denda" name="denda">
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="inputGroupFile01">Upload</label>
-            <input type="file" class="form-control" name="gambar">
+            <label for="jaminan" class="form-label">Jaminan</label>
+            <select class="form-select" aria-label="Default select example" name="jaminan" required>
+                <option selected>Pilih Jaminan</option>
+                <option value="KTP">KTP</option>
+                <option value="KTM">KTM</option>
+                <option value="Lain-Lain">Lain-Lain</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-custom">Submit</button>
     </form>
