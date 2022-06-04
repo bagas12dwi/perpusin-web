@@ -106,8 +106,31 @@
                             </form>
                         </div>
                     </div>
-                @endif
-            @endforeach
+                @else
+                    <form method="POST" action="/confirm-return" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3">
+                            <input type="hidden" class="form-control" value="{{ $item->idBooking }}" id="idBooking"
+                                name="idBooking" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <input type="hidden" class="form-control" value="{{ $item->idBuku }}" id="idBuku"
+                                name="idBuku" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <input type="hidden" class="form-control" value="{{ $item->idUser }}" id="idUser"
+                                name="idUser">
+                        </div>
+                        <div class="mb-3">
+                            <input type="hidden" class="form-control" value="{{ $item->total }}" id="nominal"
+                                name="nominal">
+                        </div>
+                        <button type="submit" class="btn btn-custom">Submit</button>
+                    </form>
         </div>
+    </div>
+    @endif
+    @endforeach
+    </div>
     </div>
 @endsection

@@ -21,7 +21,7 @@ class PengembalianController extends Controller
             ->where('libraries.user_id', auth()->user()->id)
             ->where('bookings.full_name', '!=', NULL)
             ->where('bookings.isBooked', '=', true)
-            ->where('bookings.isBack', '=', true)
+            ->where('bookings.isBack', '=', false)
             ->get();
 
         $dateNow = DB::select('SELECT current_date');
@@ -63,11 +63,14 @@ class PengembalianController extends Controller
         $nominal = $request->input('nominal');
         $idBuku = $request->input('idBuku');
 
-        $amercement = new Amercement();
-        $amercement->user_id = $idUser;
-        $amercement->booking_id = $idBooking;
-        $amercement->nominal = $nominal;
-        $amercement->save();
+
+        if ($nominal > 0) {
+            $amercement = new Amercement();
+            $amercement->user_id = $idUser;
+            $amercement->booking_id = $idBooking;
+            $amercement->nominal = $nominal;
+            $amercement->save();
+        }
 
         DB::table('bookings')
             ->where('id', $idBooking)
