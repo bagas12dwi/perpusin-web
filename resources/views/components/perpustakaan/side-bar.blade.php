@@ -44,10 +44,16 @@
                     <i class="bi bi-arrow-return-right"></i>
                     <span>Pengembalian</span></a>
             </li>
-            <li class="nav-item {{ $title == 'Rekap Transaksi' ? 'active' : '' }}">
-                <a class="nav-link" href="/riwayat-pinjam">
+            <li class="nav-item {{ $title == 'Riwayat Peminjaman' ? 'active' : '' }}">
+                <a class="nav-link" href="/riwayat-peminjaman">
                     <i class="fas fa-clipboard-list"></i>
                     <span>Riwayat Peminjaman</span></a>
+            </li>
+
+            <li class="nav-item {{ $title == 'Riwayat Denda' ? 'active' : '' }}">
+                <a class="nav-link" href="/riwayat-denda">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Riwayat Denda</span></a>
             </li>
 
             <!-- Divider -->

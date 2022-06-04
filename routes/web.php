@@ -6,6 +6,8 @@ use App\Http\Controllers\Perpustakaan;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\CartsController;
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\HistoryAmercementController;
+use App\Http\Controllers\HistoryBookingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OtentikasiController;
 use App\Http\Controllers\PengembalianController;
@@ -20,9 +22,8 @@ use App\Http\Controllers\PengembalianController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//user Route
 Route::get('/', [HomeController::class, 'index']);
-
 Route::get('/perpustakaan', [Perpustakaan::class, 'index']);
 Route::get('/perpustakaan/{library:library_name}', [Perpustakaan::class, 'browseLibrary']);
 Route::get('/buku', [BukuController::class, 'index']);
@@ -47,6 +48,8 @@ Route::post('/confirm-booking', [BookingController::class, 'konfirmasi']);
 Route::get('/pengembalian', [PengembalianController::class, 'index']);
 Route::get('/pengembalian/{booking:trx_number}', [PengembalianController::class, 'indexKonfirmasi']);
 Route::post('/confirm-return', [PengembalianController::class, 'konfirmasi']);
+Route::get('/riwayat-peminjaman', [HistoryBookingController::class, 'index']);
+Route::get('/riwayat-denda', [HistoryAmercementController::class, 'index']);
 
 //auth
 Route::get('/login', [OtentikasiController::class, 'loginIndex']);
