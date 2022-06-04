@@ -83,10 +83,19 @@ class BookingController extends Controller
 
     public function konfirmasiPinjam(Booking $booking)
     {
+        $data = DB::table('bookings')
+            ->join('books', 'bookings.book_id', '=', 'books.id')
+            ->join('libraries', 'books.library_id', '=', 'libraries.id')
+            ->join('users', 'users.id', '=', 'bookings.user_id')
+            ->select('bookings.id AS idBooking', 'bookings.trx_number', 'bookings.created_at', 'users.username', 'books.id AS idBuku', 'books.title', 'books.author', 'books.publisher', 'books.imgLocation')
+            ->where('bookings.trx_number', $booking->trx_number)
+            ->get();
+
+
         return view('adm-perpus.confirm-form-booking', [
             'title' => 'Konfirmasi Peminjaman',
             'booking' => $booking
-        ]);
+        ], compact('data'));
     }
 
     public function konfirmasi(Request $request)

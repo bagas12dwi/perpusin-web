@@ -19,47 +19,51 @@
                             <div class="col d-flex align-items-center">
                                 <a href="#" class="btn btn-custom">Baca</a>
                             </div>
-                            <div class="col d-flex align-items-center">
-                                <form method="POST" action="/addToCart" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
-                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                    <button type="submit" class="btn nav-link" name="upload"><i
-                                            class="bi bi-cart2 icon-nav"></i></button>
-                                </form>
-                            </div>
-                            <div class="col d-flex align-items-center">
-                                <form method="POST" action="/addToBooking" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
-                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                    <button type="submit" class="btn nav-link" name="upload"><i
-                                            class="bi bi-bookmark-check icon-nav"></i></button>
-                                </form>
-                            </div>
+                            @if ($item->stock > 0)
+                                <div class="col d-flex align-items-center">
+                                    <form method="POST" action="/addToCart" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
+                                        <input type="hidden" name="id" value="{{ $item->id }}">
+                                        <button type="submit" class="btn nav-link" name="upload"><i
+                                                class="bi bi-cart2 icon-nav"></i></button>
+                                    </form>
+                                </div>
+                                <div class="col d-flex align-items-center">
+                                    <form method="POST" action="/addToBooking" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
+                                        <input type="hidden" name="id" value="{{ $item->id }}">
+                                        <button type="submit" class="btn nav-link" name="upload"><i
+                                                class="bi bi-bookmark-check icon-nav"></i></button>
+                                    </form>
+                                </div>
+                            @else
+                                <h6 class="card-title text-danger">Stok Buku Tidak Ada</h6>
+                            @endif
                         @else
-                            <div class="col d-flex align-items-center">
-                                <form method="POST" action="/addToCart" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
-                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                    <button type="submit" class="btn nav-link" name="upload"><i
-                                            class="bi bi-cart2 icon-nav"></i></button>
-                                </form>
-                            </div>
-                            <div class="col d-flex align-items-center">
-                                <form method="POST" action="/addToBooking" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
-                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                    <button type="submit" class="btn nav-link" name="upload"><i
-                                            class="bi bi-bookmark-check icon-nav"></i></button>
-                                </form>
-                            </div>
-                            {{-- @else
-                            <div class="col">
-                                <a href="/login" class="nav-link"><i class="bi bi-cart2 icon-nav"></i></a>
-                            </div> --}}
+                            @if ($item->stock > 0)
+                                <div class="col d-flex align-items-center">
+                                    <form method="POST" action="/addToCart" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
+                                        <input type="hidden" name="id" value="{{ $item->id }}">
+                                        <button type="submit" class="btn nav-link" name="upload"><i
+                                                class="bi bi-cart2 icon-nav"></i></button>
+                                    </form>
+                                </div>
+                                <div class="col d-flex align-items-center">
+                                    <form method="POST" action="/addToBooking" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
+                                        <input type="hidden" name="id" value="{{ $item->id }}">
+                                        <button type="submit" class="btn nav-link" name="upload"><i
+                                                class="bi bi-bookmark-check icon-nav"></i></button>
+                                    </form>
+                                </div>
+                            @else
+                                <h6 class="card-title text-danger">Stok Buku Tidak Ada</h6>
+                            @endif
                         @endif
                     @else
                         <div class="col">

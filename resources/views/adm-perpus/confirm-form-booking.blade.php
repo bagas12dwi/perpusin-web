@@ -1,6 +1,28 @@
 @extends('layout.adm-perpus-layout')
 
 @section('konten')
+    @foreach ($data as $item)
+        <div class="card shadow mb-3">
+            <div class="card-body">
+                <h4 class="fw-bold">
+                    Username Peminjam : {{ $item->username }}
+                </h4>
+                <hr>
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="{{ URL::asset('assets/' . $item->imgLocation) }}" width="100px" alt="" />
+                    </div>
+                    <div class="col-md">
+                        <h6 class="fw-bold">{{ $item->title }}</h6>
+                        <h6>{{ $item->author }}</h6>
+                        <h6>{{ $item->publisher }}</h6>
+                        <p>{{ $item->created_at }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    <hr>
     <form method="POST" action="/confirm-booking" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
