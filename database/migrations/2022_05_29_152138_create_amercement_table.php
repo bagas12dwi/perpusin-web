@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('amercements', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('amercement_trx_no');
+            $table->string('amercement_trx_no');
             $table->integer('user_id');
             $table->integer('booking_id');
             $table->integer('nominal');

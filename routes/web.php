@@ -8,6 +8,7 @@ use App\Http\Controllers\CartsController;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OtentikasiController;
+use App\Http\Controllers\PengembalianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,9 @@ Route::post('/update-book', [BukuController::class, 'updateBook']);
 Route::get('/konfirmasi-pinjam', [BookingController::class, 'indexKonfirmasiPeminjaman']);
 Route::get('/konfirmasi-pinjam/{booking:trx_number}', [BookingController::class, 'konfirmasiPinjam']);
 Route::post('/confirm-booking', [BookingController::class, 'konfirmasi']);
+Route::get('/pengembalian', [PengembalianController::class, 'index']);
+Route::get('/pengembalian/{booking:trx_number}', [PengembalianController::class, 'indexKonfirmasi']);
+Route::post('/confirm-return', [PengembalianController::class, 'konfirmasi']);
 
 //auth
 Route::get('/login', [OtentikasiController::class, 'loginIndex']);
