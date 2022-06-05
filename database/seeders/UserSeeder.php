@@ -32,5 +32,13 @@ class UserSeeder extends Seeder
             'poin' => 0,
             'status_user' => true
         ]);
+        User::create([
+            'username' => 'Administrator',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('admin123'),
+            'role' => 1,
+            'poin' => 0,
+            'status_user' => true
+        ]);
     }
 }

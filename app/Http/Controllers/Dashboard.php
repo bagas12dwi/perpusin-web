@@ -57,4 +57,30 @@ class Dashboard extends Controller
             ->with('jmlBookingBelumDiKonfirmasi', $jmlBookingBelumDikonfirmasi)
             ->with('denda', $amercements);
     }
+
+    public function indexAdmin()
+    {
+        $jmlUser = DB::table('users')
+            ->count('id');
+
+        $jmlUserAktif = DB::table('users')
+            ->where('status_user', true)
+            ->count('id');
+
+        $jmlAkunPerpus = DB::table('users')
+            ->where('role', 2)
+            ->count('id');
+
+        $jmlAkunPerpusVerified = DB::table('libraries')
+            ->where('user_id', '!=', NULL)
+            ->count('id');
+
+
+        return view('admin.dashboard', [
+            'title' => 'Dashboard'
+        ])->with('jmlUser', $jmlUser)
+            ->with('jmlUserAktif', $jmlUserAktif)
+            ->with('jmlAkunPerpus', $jmlAkunPerpus)
+            ->with('jmlAkunPerpusVerified', $jmlAkunPerpusVerified);
+    }
 }

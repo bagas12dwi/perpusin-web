@@ -11,6 +11,7 @@ use App\Http\Controllers\HistoryBookingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OtentikasiController;
 use App\Http\Controllers\PengembalianController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,18 @@ Route::get('/pengembalian/{booking:trx_number}', [PengembalianController::class,
 Route::post('/confirm-return', [PengembalianController::class, 'konfirmasi']);
 Route::get('/riwayat-peminjaman', [HistoryBookingController::class, 'index']);
 Route::get('/riwayat-denda', [HistoryAmercementController::class, 'index']);
+
+//admin route
+Route::get('/admin', [Dashboard::class, 'indexAdmin']);
+Route::get('/list-user', [UserController::class, 'indexUser']);
+Route::get('/list-perpus', [UserController::class, 'indexPerpus']);
+Route::get('/add-admin', [UserController::class, 'indexAddAdmin']);
+Route::post('/add-admin', [UserController::class, 'addAdmin']);
+Route::post('/aktif', [UserController::class, 'aktif']);
+Route::post('/nonAktif', [UserController::class, 'suspend']);
+Route::get('/add-perpus', [UserController::class, 'indexAddPerpus']);
+Route::post('/add-perpus', [UserController::class, 'addPerpus']);
+
 
 //auth
 Route::get('/login', [OtentikasiController::class, 'loginIndex']);
