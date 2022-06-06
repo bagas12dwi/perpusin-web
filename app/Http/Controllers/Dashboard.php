@@ -49,13 +49,19 @@ class Dashboard extends Controller
             ->where('bookings.isBack', '=', true)
             ->sum('amercements.nominal');
 
+        $isExist = DB::table('libraries')
+            ->join('users', 'users.id', '=', 'libraries.user_id')
+            ->where('users.id', auth()->user()->id)
+            ->value('libraries.user_id');
+
         return view('adm-perpus.dashboard', [
             'title' => 'Dashboard'
         ])->with('jmlBuku', $jmlBuku)
             ->with('jmlBooking', $jmlBooking)
             ->with('jmlBookingSelesai', $jmlBookingSelesai)
             ->with('jmlBookingBelumDiKonfirmasi', $jmlBookingBelumDikonfirmasi)
-            ->with('denda', $amercements);
+            ->with('denda', $amercements)
+            ->with('isExist', $isExist);
     }
 
     public function indexAdmin()

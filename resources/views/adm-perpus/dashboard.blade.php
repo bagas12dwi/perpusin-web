@@ -1,6 +1,16 @@
 @extends('layout.adm-perpus-layout')
 
 @section('konten')
+    @if ($isExist == null)
+        <div class="card bg-warning text-light mb-3">
+            <div class="card-header bg-warning fw-bold">Warning !</div>
+            <div class="card-body">
+                <h5 class="card-title">Lengkapi Data Anda</h5>
+                <p class="card-text">Lengkapi data anda agar perpustakaan anda ter-publish</p>
+                <a href="/complete-data" class="btn btn-primary">Lengkapi</a>
+            </div>
+        </div>
+    @endif
     <div class="card shadow p-4">
         <h5>Monitoring Data</h5>
         <hr>

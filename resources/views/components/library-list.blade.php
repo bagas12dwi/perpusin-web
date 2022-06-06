@@ -2,7 +2,8 @@
     @foreach ($library as $item)
         <div class="col-md-4">
             <div class="card p-2" style="width: 18rem;">
-                <img src="{{ URL::asset('assets/perpustakaan1.jpg') }}" class="card-img-top" alt="...">
+                <img src="{{ URL::asset('storage/foto-perpus/' . $item->imgLocation) }}" class="card-img-top"
+                    alt="...">
                 <div class="card-body">
                     <h5 class="card-title"
                         style="text-overflow: ellipsis; width:250px; overflow: hidden; white-space:nowrap;">
